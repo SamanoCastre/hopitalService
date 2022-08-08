@@ -39,7 +39,7 @@ public class DisponibiliteRestController {
 	}
 	
 	@PutMapping("/disponibilite/decrementer")
-	public Disponibilite decrementerLitse(@RequestParam("hopital_id") int hopital_id, @RequestParam("specialite_id") int specialite_id) {
+	public Disponibilite decrementerLits(@RequestParam("hopital_id") int hopital_id, @RequestParam("specialite_id") int specialite_id) {
 		Disponibilite disponibilite = null;
 		
 		try {
