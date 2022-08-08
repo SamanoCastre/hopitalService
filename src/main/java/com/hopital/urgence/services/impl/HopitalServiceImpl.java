@@ -56,10 +56,5 @@ public class HopitalServiceImpl implements IHopitalService{
 			destinations[i] = sb.toString();
 		}
 		return destinations;
-	}
-	
-	
-	
-
-	
+	}	
 }
