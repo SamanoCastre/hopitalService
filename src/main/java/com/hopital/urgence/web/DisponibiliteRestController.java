@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.hopital.urgence.entities.Disponibilite;
 import com.hopital.urgence.services.IDisponibiliteService;
 
-@SuppressWarnings("finally")
 @RefreshScope
 @RestController
 public class DisponibiliteRestController {
@@ -22,55 +21,47 @@ public class DisponibiliteRestController {
 	
 	@PutMapping("/disponibilite/incrementer")
 	public Disponibilite incrementerLits(@RequestParam("hopital_id") int hopital_id, @RequestParam("specialite_id") int specialite_id) {
-		Disponibilite disponibilite = null;
 		
 		try {
-			if(hopital_id<0 || specialite_id <0) {
+			if(hopital_id < 1 || specialite_id  < 1) {
 				throw new Exception("l'hopital ou la specialite n'a pas été renseigné");
 			}
-		    disponibilite = this.disponibiliteService.incrementerLits(hopital_id, specialite_id);
+		    return this.disponibiliteService.incrementerLits(hopital_id, specialite_id);
 		}
 		catch(Exception e) {
 			this.logger.error(e.getMessage());
 		}
-		finally {
-			return disponibilite; 
-		}
+		return null;
 	}
 	
 	@PutMapping("/disponibilite/decrementer")
 	public Disponibilite decrementerLits(@RequestParam("hopital_id") int hopital_id, @RequestParam("specialite_id") int specialite_id) {
-		Disponibilite disponibilite = null;
 		
 		try {
-			if(hopital_id<0 || specialite_id <0) {
+			if(hopital_id < 1 || specialite_id  < 1) {
 				throw new Exception("l'hopital ou la specialite n'a pas été renseigné");
 			}
-		    disponibilite = this.disponibiliteService.decrementerLits(hopital_id, specialite_id);
+		    return this.disponibiliteService.decrementerLits(hopital_id, specialite_id);
 		
 		}
 		catch(Exception e) {
 			this.logger.error(e.getMessage());
 		}
-		finally {
-			return disponibilite; 
-		}
+		return null;
 	}
 	
 	@GetMapping("/disponibilite")
 	public Disponibilite getDisponibilite(@RequestParam("hopital_id") int hopital_id, @RequestParam("specialite_id") int specialite_id ) {
-		Disponibilite disponibilite = null;
+		
 		try {
-			if(hopital_id<0 || specialite_id <0) {
-				throw new Exception("DisponibiliteRequestDTO invalid");
+			if(hopital_id < 1 || specialite_id < 1) {
+				throw new Exception("hopital ou specialite invalid");
 			}
-			disponibilite = this.disponibiliteService.getDisponibilite(hopital_id, specialite_id);
+			return this.disponibiliteService.getDisponibilite(hopital_id, specialite_id);
 		}
 		catch(Exception e) {
 			this.logger.error(e.getMessage());
 		}
-		finally {
-			return disponibilite;
-		}
+		return null;
 	}
 }

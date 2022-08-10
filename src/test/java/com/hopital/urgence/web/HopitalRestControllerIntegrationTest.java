@@ -17,13 +17,23 @@ public class HopitalRestControllerIntegrationTest {
 	private MockMvc mockMvc;
 	
 	@Test
-	public void rechercherHopitalTest() throws Exception {
+	public void rechercherHopitalValidTest() throws Exception {
 		
 		this.mockMvc.perform(MockMvcRequestBuilders.get("/hopital")
 				.param("lieuIncident", "31100 Toulouse")
 				.param("specialite", "2"))
 		        .andExpect(status().isOk())
 				.andExpect(MockMvcResultMatchers.jsonPath("$.name").value("Hopital de Purpan"));
+	}
+	
+	@Test
+	public void rechercherHopitalInvalidTest() throws Exception {
+		
+		this.mockMvc.perform(MockMvcRequestBuilders.get("/hopital")
+				.param("lieuIncident", "31100 Toulouse")
+				.param("specialite", "0"))
+		        .andExpect(status().isOk())
+				.andExpect(MockMvcResultMatchers.jsonPath("$").doesNotExist());
 	}
 
 }

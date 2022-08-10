@@ -10,6 +10,10 @@ public class Address {
 	private String ville;
 	private String pays;
 	
+	public Address() {
+		
+	}
+	
 	public Address(String numero, String rue, String codePostal, String ville, String pays) {
 		super();
 		this.numero = numero;

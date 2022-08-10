@@ -1,6 +1,5 @@
 package com.hopital.urgence.web;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.hopital.urgence.entities.Specialite;
 import com.hopital.urgence.services.ISpecialiteService;
 
-@SuppressWarnings("finally")
 @RefreshScope
 @RestController
 public class SpecialiteRestController {
@@ -24,15 +22,12 @@ public class SpecialiteRestController {
 	
 	@GetMapping("/specialites")
 	public List<Specialite> getSpecialites() {
-		List<Specialite> specialites = new ArrayList<Specialite>();
 		try {
-			specialites = this.specialiteService.getSpecialites();
+			return this.specialiteService.getSpecialites();
 		}
 		catch(Exception e) {
 			this.logger.error(e.getMessage());
 		}
-		finally {
-			return specialites;
-		}
+		return null;
 	}
 }

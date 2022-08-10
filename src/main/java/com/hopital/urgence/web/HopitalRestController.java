@@ -7,11 +7,9 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.hopital.urgence.entities.Hopital;
 import com.hopital.urgence.services.IHopitalService;
 
-@SuppressWarnings("finally")
 @RefreshScope
 @RestController
 public class HopitalRestController {
@@ -21,22 +19,19 @@ public class HopitalRestController {
 	@Autowired
 	private IHopitalService hopitalService;
 	
-	@GetMapping("/hopital")
+	
+	@GetMapping("/hopital") 
 	public Hopital rechercherHopital(@RequestParam("lieuIncident") String lieuIncident, @RequestParam("specialite") int specialite) {
-		Hopital hopital = null;
-	    
-		try {
-			if(lieuIncident == null || specialite <=0) {
-				throw new Exception("Le lieu incident ou spécialité incorrect");
-			}
-			hopital = this.hopitalService.rechercherHopital(lieuIncident, specialite);
-		}
-		catch(Exception e) {
-			this.logger.error(e.getMessage());
-		}
-		finally {
-			return hopital;
-		}
-	}
+		try { 
+			if(lieuIncident == null || specialite <=0) { 
+			  throw new Exception("Le lieu incident ou spécialité incorrect"); 
+			} 
+			return this.hopitalService.rechercherHopital(lieuIncident, specialite); 
+	  	}
+	  	catch(Exception e) { 
+	  		this.logger.error(e.getMessage()); 
+	  	} 
+	  	return null; 
+	} 
 }
 
