@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hopital.urgence.entities.Disponibilite;
+import com.hopital.urgence.exceptions.DisponibiliteFailException;
+import com.hopital.urgence.exceptions.DisponibiliteNotFoundException;
 import com.hopital.urgence.repositories.DisponibiliteRepository;
 import com.hopital.urgence.services.IDisponibiliteService;
 
@@ -15,34 +17,76 @@ public class DisponibiliteServiceImpl implements IDisponibiliteService{
 	DisponibiliteRepository disponibiliteRepository;
 	
 	@Override
-	public Disponibilite incrementerLits(int hopital_id, int specialite_id) {
+	public Disponibilite incrementerLits(int hopital_id, int specialite_id) throws Exception{
+		try {
 		
-		Disponibilite disponibilite = this.getDisponibilite(hopital_id, specialite_id);
-		if(disponibilite != null) {
-			disponibilite.setLits(disponibilite.getLits() + 1);
-			this.disponibiliteRepository.save(disponibilite);
+			Disponibilite disponibilite = this.getDisponibilite(hopital_id, specialite_id);
+			try {
+				disponibilite.setLits(disponibilite.getLits() + 1);
+				disponibilite = this.disponibiliteRepository.save(disponibilite);
+				if(disponibilite == null) {
+					throw new Exception("disponibilité null");
+				}
+				return disponibilite;
+			}
+			catch(Exception e) {
+				throw new DisponibiliteFailException(e.getMessage() + "Erreur lors de l'incrémentation du nombre de lits {hopital_id:" + hopital_id + ",specialite_id:" + specialite_id + "}");
+			}
 		}
-		return disponibilite;
-	}
-
-	@Override
-	public Disponibilite decrementerLits(int hopital_id, int specialite_id) {
-		Disponibilite disponibilite = this.getDisponibilite(hopital_id, specialite_id);
-		if(disponibilite != null) {
-			disponibilite.setLits(disponibilite.getLits() - 1);
-			this.disponibiliteRepository.save(disponibilite);
+		catch(Exception e) {
+			throw e;
 		}
-		return disponibilite;
 	}
 
 	@Override
-	public Disponibilite getDisponibilite(int hopital_id, int specialite_id) {
-		return this.disponibiliteRepository.findByHopitalAndSpecialite(hopital_id, specialite_id).get(0);
+	public Disponibilite decrementerLits(int hopital_id, int specialite_id) throws Exception{
+		try {
+			Disponibilite disponibilite = this.getDisponibilite(hopital_id, specialite_id);
+			    
+			try {
+				disponibilite.setLits(disponibilite.getLits() - 1);
+				disponibilite = this.disponibiliteRepository.save(disponibilite);
+				if(disponibilite == null) {
+					throw new Exception("disponibilité null");
+				}
+				return disponibilite;
+			}
+			catch(Exception e) {
+				throw new DisponibiliteFailException(e.getMessage() + "\nErreur lors de la décrémentation du nombre de lits {hopital_id:" + hopital_id + ",specialite_id:" + specialite_id + "}");
+			}
+		}
+		catch(Exception e) {
+			throw e;
+		}
 	}
 
 	@Override
-	public List<Disponibilite> findBySpecialiteId(int specialite_id) {
-		return this.disponibiliteRepository.findBySpecialiteId(specialite_id);
+	public Disponibilite getDisponibilite(int hopital_id, int specialite_id) throws Exception{
+		try {
+			Disponibilite disponibilite = this.disponibiliteRepository.findByHopitalAndSpecialite(hopital_id, specialite_id).get(0);
+			if(disponibilite == null) {
+				throw new DisponibiliteNotFoundException("Disponibilite null");
+			}
+			return disponibilite;
+		}
+		catch(Exception e) {
+			throw new DisponibiliteNotFoundException(e.getMessage() + "\n aucune disponibilité pour les arguments suivants : {hopital_id:" + hopital_id + ",specialite_id:" + specialite_id + "}");
+		}
 	}
-    
+	
+	
+
+	@Override
+	public List<Disponibilite> findBySpecialiteId(int specialite_id) throws Exception{
+		try {
+			List<Disponibilite> disponibilites = this.disponibiliteRepository.findBySpecialiteId(specialite_id);
+			if(disponibilites.isEmpty()) {
+				throw new DisponibiliteNotFoundException("List Disponibilites null");
+			}
+			return disponibilites;
+		}
+		catch(Exception e) {
+			throw new DisponibiliteNotFoundException(e.getMessage() + "\n aucune disponibilité pour l'argument suivant : {specialite_id:" + specialite_id + "}");
+		}
+	}
 }

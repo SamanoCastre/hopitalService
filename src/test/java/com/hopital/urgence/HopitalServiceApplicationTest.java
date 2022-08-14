@@ -9,8 +9,8 @@ import com.hopital.urgence.web.DisponibiliteRestController;
 import com.hopital.urgence.web.HopitalRestController;
 import com.hopital.urgence.web.SpecialiteRestController;
 
-@SpringBootTest
 
+@SpringBootTest(properties = { "API_KEY=test" })
 class HopitalServiceApplicationTest {
 	@Autowired
 	private HopitalRestController hopitalRestController;

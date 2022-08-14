@@ -20,7 +20,7 @@ import com.hopital.urgence.entities.Hopital;
 import com.hopital.urgence.entities.Specialite;
 import com.hopital.urgence.services.IDisponibiliteService;
 
-@SpringBootTest
+@SpringBootTest(properties = { "API_KEY=test" })
 @AutoConfigureMockMvc
 public class DisponibiliteRestControllerIntegrationTest {
 	
@@ -34,6 +34,7 @@ public class DisponibiliteRestControllerIntegrationTest {
 	
 	@BeforeEach 
 	public void init() {
+		//Given
 		this.disponibilite = new Disponibilite(1,new Hopital(2, "Test", new Address("1","place du Docteur Baylac","31059","Toulouse","France"), new Date()), new Specialite(2, "Anethsesie", "Anethsésie", new Date()), 15, new Date());
 	}
 	

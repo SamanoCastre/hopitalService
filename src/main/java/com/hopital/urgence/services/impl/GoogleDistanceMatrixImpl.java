@@ -1,4 +1,7 @@
 package com.hopital.urgence.services.impl;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -8,6 +11,7 @@ import com.google.maps.GeoApiContext;
 import com.google.maps.model.DistanceMatrix;
 import com.google.maps.model.DistanceMatrixElement;
 import com.google.maps.model.TravelMode;
+import com.hopital.urgence.entities.Disponibilite;
 import com.hopital.urgence.services.IGoogleDistanceMatrix;
 
 @Service
@@ -43,8 +47,9 @@ public class GoogleDistanceMatrixImpl implements IGoogleDistanceMatrix {
     }
     
     @Override
-    public String getClosestDestination(String addressFrom, String ...addressTo) throws Exception {
-    	DistanceMatrix distanceMatrix = this.getDistanceMatrix(addressFrom, addressTo);
+    public String getClosestDestination(String addressFrom, String[] destinationsTo) throws Exception {
+    	
+    	DistanceMatrix distanceMatrix = this.getDistanceMatrix(addressFrom, destinationsTo);
 		DistanceMatrixElement[] elements = distanceMatrix.rows[0].elements;
 		String[] destinations = distanceMatrix.destinationAddresses;
 		
