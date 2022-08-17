@@ -19,7 +19,7 @@ pipeline{
             steps	{
             bat "mvn jacoco:report"
             publishHTML	(target:	[
-				reportDir:	'target/site/jacoco',
+				reportDir:	'htmlreports/Code_20coverage_20report',
 				reportFiles:	'index.html',
 				reportName:	"Code coverage report"
 			])
