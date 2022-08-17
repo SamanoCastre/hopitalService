@@ -2,8 +2,7 @@ package com.hopital.urgence.entities;
 
 import java.util.Date;
 
-import javax.persistence.Id;
-
+import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 

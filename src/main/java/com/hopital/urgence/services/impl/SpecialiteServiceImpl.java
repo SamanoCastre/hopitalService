@@ -15,7 +15,7 @@ public class SpecialiteServiceImpl implements ISpecialiteService{
 	private SpecialiteRepository specialiteRepository; 
 	
 	@Override
-	public List<Specialite> getSpecialites() {
+	public List<Specialite> getSpecialites() throws Exception{
 		return this.specialiteRepository.findAll();
 	}
 

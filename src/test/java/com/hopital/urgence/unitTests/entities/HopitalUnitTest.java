@@ -1,4 +1,4 @@
-package com.hopital.urgence.entities;
+package com.hopital.urgence.unitTests.entities;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -8,8 +8,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.hopital.urgence.entities.Address;
+import com.hopital.urgence.entities.Hopital;
+
 @SpringBootTest(properties = { "API_KEY=test" })
-public class HopitalTest {
+public class HopitalUnitTest {
 	Hopital hopital;
 	
 	@BeforeEach

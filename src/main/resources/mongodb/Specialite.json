@@ -1,0 +1,801 @@
+[{
+  "_id": 1,
+  "name": "Anesthésie",
+  "groupe": "Anesthésie",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940658"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 2,
+  "name": "Soins intensifs",
+  "groupe": "Anesthésie",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940678"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 3,
+  "name": "Oncologie clinique",
+  "groupe": "Oncologie clinique",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940681"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 4,
+  "name": "Spécialités dentaires supplémentaires",
+  "groupe": "Groupe dentaire",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940686"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 5,
+  "name": "Radiologie dentaire et maxillo-faciale",
+  "groupe": "Groupe dentaire",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940687"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 6,
+  "name": "Endodontie",
+  "groupe": "Groupe dentaire",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940688"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 7,
+  "name": "Chirurgie buccale et maxillo-faciale",
+  "groupe": "Groupe dentaire",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940690"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 8,
+  "name": "Pathologie buccale et maxillo-faciale",
+  "groupe": "Groupe dentaire",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940691"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 9,
+  "name": "Médecine buccale",
+  "groupe": "Groupe dentaire",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940694"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 10,
+  "name": "Chriurgie buccale",
+  "groupe": "Groupe dentaire",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940695"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 11,
+  "name": "Orthodontie",
+  "groupe": "Groupe dentaire",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940697"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 12,
+  "name": "Dentisterie pédiatrique",
+  "groupe": "Groupe dentaire",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940699"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 13,
+  "name": "Parodontie",
+  "groupe": "Groupe dentaire",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940700"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 14,
+  "name": "Prosthodontie",
+  "groupe": "Groupe dentaire",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940702"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 15,
+  "name": "Dentisterie restauratrice",
+  "groupe": "Groupe dentaire",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940704"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 16,
+  "name": "Dentisterie de soins spéciaux",
+  "groupe": "Groupe dentaire",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940705"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 17,
+  "name": "Médecine d'urgence",
+  "groupe": "Médecine d'urgence",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940707"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 18,
+  "name": "Médecine interne de soins aigus",
+  "groupe": "Groupe de médecine générale",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940709"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 19,
+  "name": "Allergie",
+  "groupe": "Groupe de médecine générale",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940710"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 20,
+  "name": "Médecine audiovestibulaire",
+  "groupe": "Groupe de médecine générale",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940712"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 21,
+  "name": "Cardiologie",
+  "groupe": "Groupe de médecine générale",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940714"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 22,
+  "name": "Génétique clinique",
+  "groupe": "Groupe de médecine générale",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940716"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 23,
+  "name": "Neurophysiologie clinique",
+  "groupe": "Groupe de médecine générale",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940718"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 24,
+  "name": "Pharmacologie clinique et thérapeutique",
+  "groupe": "Groupe de médecine générale",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940719"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 25,
+  "name": "Dermatologie",
+  "groupe": "Groupe de médecine générale",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940721"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 26,
+  "name": "Endocrinologie et diabète sucré",
+  "groupe": "Groupe de médecine générale",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940722"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 27,
+  "name": "Gastroentérologie",
+  "groupe": "Groupe de médecine générale",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940724"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 28,
+  "name": "Médecine générale (interne)",
+  "groupe": "Groupe de médecine générale",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940725"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 29,
+  "name": "Médecin généraliste",
+  "groupe": "Groupe de médecine générale",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940727"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 30,
+  "name": "Médecine générale (GP) 6 mois",
+  "groupe": "Groupe de médecine générale",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940728"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 31,
+  "name": "Médecine génito-urinaire",
+  "groupe": "Groupe de médecine générale",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940729"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 32,
+  "name": "Médecine gériatrique",
+  "groupe": "Groupe de médecine générale",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940731"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 33,
+  "name": "Maladies infectieuses",
+  "groupe": "Groupe de médecine générale",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940733"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 34,
+  "name": "Oncologie médicale",
+  "groupe": "Groupe de médecine générale",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940734"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 35,
+  "name": "Ophtalmologie médicale",
+  "groupe": "Groupe de médecine générale",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940736"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 36,
+  "name": "Neurologie",
+  "groupe": "Groupe de médecine générale",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940737"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 37,
+  "name": "Médecine du travail",
+  "groupe": "Groupe de médecine générale",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940738"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 38,
+  "name": "Autre",
+  "groupe": "Groupe de médecine générale",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940740"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 39,
+  "name": "Médecine palliative",
+  "groupe": "Groupe de médecine générale",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940741"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 40,
+  "name": "Médecine de réadaptation",
+  "groupe": "Groupe de médecine générale",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940742"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 41,
+  "name": "Médecine rénale",
+  "groupe": "Groupe de médecine générale",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940743"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 42,
+  "name": "Médecine respiratoire",
+  "groupe": "Groupe de médecine générale",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940745"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 43,
+  "name": "Rhumatologie",
+  "groupe": "Groupe de médecine générale",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940746"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 44,
+  "name": "Médecine du sport et de l'exercice",
+  "groupe": "Groupe de médecine générale",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940748"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 45,
+  "name": "Santé publique sexuelle et procréative",
+  "groupe": "Obstétrique et gynécologie",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940749"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 46,
+  "name": "Cardiologie pédiatrique",
+  "groupe": "Groupe pédiatrique ",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940750"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 47,
+  "name": "Pédiatrie",
+  "groupe": "Groupe pédiatrique ",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940751"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 48,
+  "name": "Pathologie chimique",
+  "groupe": "Groupe de pathologie",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940752"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 49,
+  "name": "Neuropathologie diagnostique",
+  "groupe": "Groupe de pathologie",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940754"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 50,
+  "name": "Histopathologie médico-légale",
+  "groupe": "Groupe de pathologie",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940755"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 51,
+  "name": "Pathologie générale",
+  "groupe": "Groupe de pathologie",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940756"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 52,
+  "name": "Hématologie",
+  "groupe": "Groupe de pathologie",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940757"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 53,
+  "name": "Histopathologie",
+  "groupe": "Groupe de pathologie",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940758"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 54,
+  "name": "Immunologie",
+  "groupe": "Groupe de pathologie",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940759"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 55,
+  "name": "Microbiologie médicale",
+  "groupe": "Groupe de pathologie",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940760"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 56,
+  "name": "Pathologie pédiatrique et périnatale",
+  "groupe": "Groupe de pathologie",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940761"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 57,
+  "name": "Virologie",
+  "groupe": "Groupe de pathologie",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940763"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 58,
+  "name": "Service de santé communautaire dentaire",
+  "groupe": "Groupe Pronostiques et gestion de la santé/Santé communautaire",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940764"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 59,
+  "name": "Service de santé communautaire médical",
+  "groupe": "Groupe Pronostiques et gestion de la santé/Santé communautaire",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940765"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 60,
+  "name": "Santé publique dentaire",
+  "groupe": "Groupe Pronostiques et gestion de la santé/Santé communautaire",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940766"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 61,
+  "name": "Praticien de l’art dentaire",
+  "groupe": "Groupe Pronostiques et gestion de la santé/Santé communautaire",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940768"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 62,
+  "name": "Santé publique",
+  "groupe": "Groupe Pronostiques et gestion de la santé/Santé communautaire",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940769"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 63,
+  "name": "Psychiatrie infantile et adolescente",
+  "groupe": "Groupe de psychiatrie",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940771"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 64,
+  "name": "Psychiatrie légale",
+  "groupe": "Groupe de psychiatrie",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940772"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 65,
+  "name": "Psychiatrie générale",
+  "groupe": "Groupe de psychiatrie",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940774"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 66,
+  "name": "Psychiatrie de la vieillesse",
+  "groupe": "Groupe de psychiatrie",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940775"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 67,
+  "name": "Psychiatrie des troubles d'apprentissage",
+  "groupe": "Groupe de psychiatrie",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940776"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 68,
+  "name": "Psychothérapie",
+  "groupe": "Groupe de psychiatrie",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940777"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 69,
+  "name": "Radiologie clinique",
+  "groupe": "Groupe de radiologie",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940778"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 70,
+  "name": "Médecine nucléaire",
+  "groupe": "Groupe de radiologie",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940779"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 71,
+  "name": "Chirurgie cardiothoracique",
+  "groupe": "Groupe chirurgical",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940780"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 72,
+  "name": "Chirurgie générale",
+  "groupe": "Groupe chirurgical",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940781"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 73,
+  "name": "Neurochirurgie",
+  "groupe": "Groupe chirurgical",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940782"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 74,
+  "name": "Ophtalmologie",
+  "groupe": "Groupe chirurgical",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940783"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 75,
+  "name": "Otolaryngologie",
+  "groupe": "Groupe chirurgical",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940784"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 76,
+  "name": "Chirurgie pédiatrique",
+  "groupe": "Groupe chirurgical",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940785"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 77,
+  "name": "Chirurgie plastique",
+  "groupe": "Groupe chirurgical",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940786"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 78,
+  "name": "Traumatologie et chirurgie orthopédique",
+  "groupe": "Groupe chirurgical",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940787"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 79,
+  "name": "Urologie",
+  "groupe": "Groupe chirurgical",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940788"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+},{
+  "_id": 80,
+  "name": "Chirurgie vasculaire",
+  "groupe": "Groupe chirurgical",
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940789"
+    }
+  },
+  "_class": "com.emergency.system.entities.Specialite"
+}]

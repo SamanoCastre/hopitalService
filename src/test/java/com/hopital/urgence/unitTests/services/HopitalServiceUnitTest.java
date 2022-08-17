@@ -1,4 +1,4 @@
-package com.hopital.urgence.services;
+package com.hopital.urgence.unitTests.services;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.when;
@@ -16,10 +16,13 @@ import com.hopital.urgence.entities.Disponibilite;
 import com.hopital.urgence.entities.Hopital;
 import com.hopital.urgence.entities.Specialite;
 import com.hopital.urgence.exceptions.RechercheFailException;
+import com.hopital.urgence.services.IDisponibiliteService;
+import com.hopital.urgence.services.IGoogleDistanceMatrix;
+import com.hopital.urgence.services.IHopitalService;
 import com.hopital.urgence.services.impl.HopitalServiceImpl;
 
 @SpringBootTest(properties = { "API_KEY=test" })
-public class HopitalServiceTest {
+public class HopitalServiceUnitTest {
 	
 	@Mock
 	private IGoogleDistanceMatrix distanceService;

@@ -1,7 +1,6 @@
-package com.hopital.urgence.services;
+package com.hopital.urgence.unitTests.services;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -14,10 +13,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.hopital.urgence.entities.Specialite;
 import com.hopital.urgence.repositories.SpecialiteRepository;
+import com.hopital.urgence.services.ISpecialiteService;
 import com.hopital.urgence.services.impl.SpecialiteServiceImpl;
 
 @SpringBootTest(properties = { "API_KEY=test" })
-public class SpecialiteServiceTest {
+public class SpecialiteServiceUnitTest {
 	@Mock
 	SpecialiteRepository specialiteRepository;
 	
@@ -25,7 +25,7 @@ public class SpecialiteServiceTest {
 	private ISpecialiteService specialiteService = new SpecialiteServiceImpl();
 	
 	@Test
-	public void getSpecialitesTest() {
+	public void getSpecialitesTest() throws Exception {
 		List<Specialite>specialites = new ArrayList<Specialite>();
 		when(this.specialiteRepository.findAll()).thenReturn(specialites);
 		assertThat(this.specialiteService.getSpecialites()).asList();

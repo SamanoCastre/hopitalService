@@ -63,17 +63,16 @@ public class DisponibiliteServiceImpl implements IDisponibiliteService{
 	@Override
 	public Disponibilite getDisponibilite(int hopital_id, int specialite_id) throws Exception{
 		try {
-			Disponibilite disponibilite = this.disponibiliteRepository.findByHopitalAndSpecialite(hopital_id, specialite_id).get(0);
-			if(disponibilite == null) {
+			 List<Disponibilite> disponibilites = this.disponibiliteRepository.findByHopitalAndSpecialite(hopital_id, specialite_id);
+			if(disponibilites == null || disponibilites.size() == 0) {
 				throw new DisponibiliteNotFoundException("Disponibilite null");
 			}
-			return disponibilite;
+			return disponibilites.get(0);
 		}
 		catch(Exception e) {
 			throw new DisponibiliteNotFoundException(e.getMessage() + "\n aucune disponibilité pour les arguments suivants : {hopital_id:" + hopital_id + ",specialite_id:" + specialite_id + "}");
 		}
 	}
-	
 	
 
 	@Override

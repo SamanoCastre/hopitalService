@@ -1,4 +1,4 @@
-package com.hopital.urgence.web;
+package com.hopital.urgence.integrationTests;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -7,8 +7,7 @@ import java.util.Date;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -19,9 +18,9 @@ import com.hopital.urgence.entities.Disponibilite;
 import com.hopital.urgence.entities.Hopital;
 import com.hopital.urgence.entities.Specialite;
 import com.hopital.urgence.services.IDisponibiliteService;
+import com.hopital.urgence.web.DisponibiliteRestController;
 
-@SpringBootTest(properties = { "API_KEY=test" })
-@AutoConfigureMockMvc
+@WebMvcTest(DisponibiliteRestController.class)
 public class DisponibiliteRestControllerIntegrationTest {
 	
 	@Autowired
@@ -55,7 +54,7 @@ public class DisponibiliteRestControllerIntegrationTest {
 		this.mockMvc.perform(MockMvcRequestBuilders.get("/disponibilite")
 				.param("hopital_id", "0")
 				.param("specialite_id", "0"))
-		        .andExpect(status().isOk())
+		        .andExpect(status().isInternalServerError())
 				.andExpect(MockMvcResultMatchers.jsonPath("$").doesNotExist());
 	}
 	
@@ -67,7 +66,7 @@ public class DisponibiliteRestControllerIntegrationTest {
 		this.mockMvc.perform(MockMvcRequestBuilders.put("/disponibilite/incrementer")
 				.param("hopital_id", "2")
 				.param("specialite_id", "2"))
-		        .andExpect(status().isOk())
+		        .andExpect(status().isCreated())
 		        .andExpect(MockMvcResultMatchers.jsonPath("$.hopital.id").value(this.disponibilite.getHopital().getId()))
 				.andExpect(MockMvcResultMatchers.jsonPath("$.specialite.id").value(this.disponibilite.getSpecialite().getId()))
 				.andExpect(MockMvcResultMatchers.jsonPath("$.lits").value("16"));
@@ -81,7 +80,7 @@ public class DisponibiliteRestControllerIntegrationTest {
 		this.mockMvc.perform(MockMvcRequestBuilders.put("/disponibilite/incrementer")
 				.param("hopital_id", "0")
 				.param("specialite_id", "0"))
-		        .andExpect(status().isOk())
+		        .andExpect(status().isNotModified())
 		        .andExpect(MockMvcResultMatchers.jsonPath("$").doesNotExist());
 	}
 	
@@ -93,7 +92,7 @@ public class DisponibiliteRestControllerIntegrationTest {
 		this.mockMvc.perform(MockMvcRequestBuilders.put("/disponibilite/decrementer")
 				.param("hopital_id", "2")
 				.param("specialite_id", "2"))
-		        .andExpect(status().isOk())
+		        .andExpect(status().isCreated())
 		        .andExpect(MockMvcResultMatchers.jsonPath("$.hopital.id").value(this.disponibilite.getHopital().getId()))
 				.andExpect(MockMvcResultMatchers.jsonPath("$.specialite.id").value(this.disponibilite.getSpecialite().getId()))
 				.andExpect(MockMvcResultMatchers.jsonPath("$.lits").value("14"));
@@ -107,7 +106,7 @@ public class DisponibiliteRestControllerIntegrationTest {
 		this.mockMvc.perform(MockMvcRequestBuilders.put("/disponibilite/decrementer")
 				.param("hopital_id", "0")
 				.param("specialite_id", "0"))
-		        .andExpect(status().isOk())
+		        .andExpect(status().isNotModified())
 		        .andExpect(MockMvcResultMatchers.jsonPath("$").doesNotExist());
 	}
 }

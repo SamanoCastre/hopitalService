@@ -1,0 +1,10 @@
+[{
+  "_id": "specialites_sequence",
+  "seq": 80
+},{
+  "_id": "hopitals_sequence",
+  "seq": 4
+},{
+  "_id": "disponibilites_sequence",
+  "seq": 320
+}]

@@ -4,11 +4,13 @@ import java.util.Date;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 
 import com.hopital.urgence.entities.Address;
@@ -30,7 +32,7 @@ public class HopitalServiceApplication {
 	}
 	/*
 	@Bean
-	CommandLineRunner start(SequenceGeneratorService sequenceGeneratorService, SpecialiteRepository specialiteRepository, HopitalRepository hopitalRepository, DisponibiliteRepository disponibiliteRepository, RepositoryRestConfiguration restConfiguration) {
+	CommandLineRunner start(ISequenceGeneratorService sequenceGeneratorService, SpecialiteRepository specialiteRepository, HopitalRepository hopitalRepository, DisponibiliteRepository disponibiliteRepository, RepositoryRestConfiguration restConfiguration) {
 		
 		return args ->{
 			restConfiguration.exposeIdsFor(Specialite.class);

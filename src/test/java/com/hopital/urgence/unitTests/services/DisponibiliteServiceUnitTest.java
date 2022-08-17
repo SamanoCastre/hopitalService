@@ -1,4 +1,4 @@
-package com.hopital.urgence.services;
+package com.hopital.urgence.unitTests.services;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -9,7 +9,6 @@ import static org.mockito.Mockito.when;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -28,7 +27,7 @@ import com.hopital.urgence.services.impl.DisponibiliteServiceImpl;
 
 
 @SpringBootTest(properties = { "API_KEY=test" })
-public class DisponibiliteServiceTest {
+public class DisponibiliteServiceUnitTest {
 	
 	@Mock
 	private DisponibiliteRepository disponibiliteRepository;
@@ -41,7 +40,12 @@ public class DisponibiliteServiceTest {
 	@BeforeEach
 	public void init() {
 		this.disponibilitiesList = new ArrayList<Disponibilite>();
-		this.disponibilitiesList.add(new Disponibilite(1,new Hopital(2, "Test", new Address("1","place du Docteur Baylac","31059","Toulouse","France"), new Date()), new Specialite(2, "Anethsesie", "Anethsésie", new Date()), 15, new Date()));
+		this.disponibilitiesList.add(
+				new Disponibilite(
+						1,
+						new Hopital(2, "Test", new Address("1","place du Docteur Baylac","31059","Toulouse","France"), new Date()), 
+						new Specialite(2, "Anethsesie", "Anethsésie", new Date()), 15, new Date())
+				);
 	}
 	
 	

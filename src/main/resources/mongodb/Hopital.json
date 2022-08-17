@@ -1,0 +1,64 @@
+[{
+  "_id": 1,
+  "name": "Hopital de Purpan",
+  "address": {
+    "numero": "1",
+    "rue": "place du Docteur Baylac",
+    "codePostal": "31059",
+    "ville": "Toulouse",
+    "pays": "France"
+  },
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940790"
+    }
+  },
+  "_class": "com.emergency.system.entities.Hopital"
+},{
+  "_id": 2,
+  "name": "Hopital de rangueil",
+  "address": {
+    "numero": "1",
+    "rue": "Av. du Professeur Jean Poulhès",
+    "codePostal": "31400",
+    "ville": "Toulouse",
+    "pays": "France"
+  },
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940804"
+    }
+  },
+  "_class": "com.emergency.system.entities.Hopital"
+},{
+  "_id": 3,
+  "name": "Hospitals Academics Paris Centre Ap-Hp",
+  "address": {
+    "numero": "27",
+    "rue": "Rue du Faubourg Saint-Jacques",
+    "codePostal": "75014",
+    "ville": "Paris",
+    "pays": "France"
+  },
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940806"
+    }
+  },
+  "_class": "com.emergency.system.entities.Hopital"
+},{
+  "_id": 4,
+  "name": "CHU de Bordeaux",
+  "address": {
+    "rue": "Pl. Amélie Raba Léon",
+    "codePostal": "33000",
+    "ville": "Bordeaux",
+    "pays": "France"
+  },
+  "dateCreation": {
+    "$date": {
+      "$numberLong": "1658859940807"
+    }
+  },
+  "_class": "com.emergency.system.entities.Hopital"
+}]
