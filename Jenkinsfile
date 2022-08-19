@@ -22,7 +22,6 @@ pipeline{
 					reportFiles:	'index.html',
 					reportName:	"CodeCoverageReport"
 				])
-	            bat "mvn clean verify"
             }
         }
 		stage("Package the application")	{
