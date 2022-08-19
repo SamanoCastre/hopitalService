@@ -22,15 +22,15 @@ pipeline{
 					reportFiles:	'index.html',
 					reportName:	"CodeCoverageReport"
 				])
+		    jacoco( 
+      execPattern: 'target/*.exec',
+      classPattern: 'target/classes',
+      sourcePattern: 'src/main/java',
+      exclusionPattern: 'src/test*'
+)
             }
         }
-	    stage('Build') {
-     steps {
-        bat '/jenkins_build.bat'
-        junit '*/build/test-results/*.xml'
-        step( [ $class: 'JacocoPublisher' ] )
-     }
-}
+	    
 		stage("Package the application")	{
 	            steps	{
 	            	bat "mvn clean package -DskipTests"
