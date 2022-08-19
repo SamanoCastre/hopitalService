@@ -23,9 +23,10 @@ Note 3 : All access to this microservice must be done via the API gateway (Gatew
 #Requirements
 1. Java 17
 2. Maven 3.8.6
+3. Mongodb 6.0.0
 
 #External API used
-GoogleMatrix API (provid a valid API KEY "see cloudConfig repo")  : to calculate the distance
+GoogleMatrix API (provide a valid API KEY "see cloudConfig repo")  : to calculate the distance
 
 #Dependencies
 1. spring-boot-starter-data-mongodb
@@ -45,12 +46,12 @@ GoogleMatrix API (provid a valid API KEY "see cloudConfig repo")  : to calculate
 4. Acceptance Tests
 3. Command line : mvn test (see the project's jenkinsfile)
 
-##Automated tests 
-1. using the jenkins tool (see the project's jenkinsfile)
+##CI-CD
+1. See the project's configuration jenkinsfile
 
 ##Tests Report
 1. Use Jacoco
-2. Command line : mvn jacoco:report (see project's jenkinsfile)
+2. Command line : mvn test jacoco:report (see project's jenkinsfile)
 
 #Build
 command line : mvn clean install (see jenkinsfile)
@@ -60,6 +61,4 @@ command line : mvn clean package -DskipTests (see the project's jenkins file)
 
 #Deploy
 command line : mvn spring-boot:run
-
-
 

@@ -22,9 +22,11 @@ import com.hopital.urgence.repositories.HopitalRepository;
 import com.hopital.urgence.repositories.SpecialiteRepository;
 import com.hopital.urgence.services.ISequenceGeneratorService;
 
+
 @EnableDiscoveryClient
 @EnableFeignClients
 @SpringBootApplication
+
 public class HopitalServiceApplication {
 
 	public static void main(String[] args) {

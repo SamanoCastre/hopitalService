@@ -1,5 +1,6 @@
 package com.hopital.urgence.web;
 
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -22,7 +23,7 @@ public class HopitalRestController {
 	}
 	
 	@GetMapping(path="/hopital", produces=MediaType.APPLICATION_JSON_VALUE) 
-	public ResponseEntity<Hopital> rechercherHopital(@RequestParam("lieuIncident") String lieuIncident, @RequestParam("specialite") int specialite) {
+	public ResponseEntity<Hopital> rechercherHopital( @RequestParam("lieuIncident") String lieuIncident, @RequestParam("specialite") int specialite) {
 		
 		try { 
 			if(lieuIncident == null || specialite <=0) { 
