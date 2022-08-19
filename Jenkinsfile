@@ -18,9 +18,6 @@ pipeline{
             steps	{
 	            bat "mvn jacoco:report"
 	            publishHTML	(target:	[
-			    		 allowMissing: false,
-      alwaysLinkToLastBuild: false,
-      keepAll: true,
 					reportDir:	'target/site/jacoco',
 					reportFiles:	'index.html',
 					reportName:	"CodeCoverageReport"
