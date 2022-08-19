@@ -24,6 +24,13 @@ pipeline{
 				])
             }
         }
+	    stage('Build') {
+     steps {
+        sh './jenkins_build.sh'
+        junit '*/build/test-results/*.xml'
+        step( [ $class: 'JacocoPublisher' ] )
+     }
+}
 		stage("Package the application")	{
 	            steps	{
 	            	bat "mvn clean package -DskipTests"
