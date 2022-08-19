@@ -26,7 +26,7 @@ pipeline{
         }
 	    stage('Build') {
      steps {
-        bat './jenkins_build.bat'
+        bat '/jenkins_build.bat'
         junit '*/build/test-results/*.xml'
         step( [ $class: 'JacocoPublisher' ] )
      }
