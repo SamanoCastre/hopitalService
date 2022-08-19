@@ -22,12 +22,6 @@ pipeline{
 					reportFiles:	'index.html',
 					reportName:	"CodeCoverageReport"
 				])
-		    jacoco( 
-      execPattern: 'target/*.exec',
-      classPattern: 'target/classes',
-      sourcePattern: 'src/main/java',
-      exclusionPattern: 'src/test*'
-)
             }
         }
 	    
