@@ -8,7 +8,7 @@ pipeline{
 		    def autoCancelled = false
 			try {
 			  stage('checkout') {
-			    if (your condition) {
+			    if (!continueBuild) {
 			      autoCancelled = true
 			      return
 			    }
