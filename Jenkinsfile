@@ -5,10 +5,6 @@ pipeline{
 	}
     stages{
         stage("Compile the source code")	{
-			if (!continueBuild) {
-				    currentBuild.result = 'ABORTED'
-				    error('Stopping early…')
-			}
             steps	{
             	bat "mvn compile"
             }
