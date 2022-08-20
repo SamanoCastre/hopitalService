@@ -8,7 +8,6 @@ import java.util.Date;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import org.springframework.http.HttpStatus;
 
 import com.hopital.urgence.entities.Address;
 import com.hopital.urgence.entities.Disponibilite;
@@ -43,12 +42,6 @@ public class DisponibiliteRestControllerUnitTest {
 	}
 	
 	@Test
-	public void getDisponibiliteInValidUnitTest() throws Exception {
-		when(this.disponibiliteService.getDisponibilite(anyInt(), anyInt())).thenReturn(this.disponibilite);
-		assertEquals(this.disponibiliteRestController.getDisponibilite(0, 0).getStatusCode(), HttpStatus.INTERNAL_SERVER_ERROR);
-	}
-	
-	@Test
 	public void incrementerLitsValidUnitTest() throws Exception {
 		int newLits = this.disponibilite.getLits() + 1;
 		this.disponibilite.setLits(newLits);
@@ -57,24 +50,10 @@ public class DisponibiliteRestControllerUnitTest {
 	}
 	
 	@Test
-	public void incrementerLitsInValidUnitTest() throws Exception {
-		this.disponibilite.setLits(this.disponibilite.getLits() + 1);
-		when(this.disponibiliteService.incrementerLits(anyInt(), anyInt())).thenReturn(disponibilite);
-		assertEquals(this.disponibiliteRestController.incrementerLits(0, 0).getStatusCode(), HttpStatus.NOT_MODIFIED);
-	}
-	
-	@Test
 	public void decrementerLitsValidTest() throws Exception {
 		int newLits = this.disponibilite.getLits() - 1;
 		this.disponibilite.setLits(newLits);
 		when(this.disponibiliteService.decrementerLits(anyInt(), anyInt())).thenReturn(disponibilite);
 		assertEquals(newLits, this.disponibiliteRestController.decrementerLits(2, 2).getBody().getLits());
-	}
-	
-	@Test
-	public void decrementerLitsInvalidTest() throws Exception {
-		this.disponibilite.setLits(this.disponibilite.getLits() - 1);
-		when(this.disponibiliteService.decrementerLits(anyInt(), anyInt())).thenReturn(disponibilite);
-		assertEquals(this.disponibiliteRestController.decrementerLits(0, 0).getStatusCode(),HttpStatus.NOT_MODIFIED);
 	}
 }

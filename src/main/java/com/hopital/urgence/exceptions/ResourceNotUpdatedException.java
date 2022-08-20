@@ -1,13 +1,13 @@
 package com.hopital.urgence.exceptions;
 
-public class DisponibiliteFailException extends Exception{
+public class ResourceNotUpdatedException extends RuntimeException{
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public DisponibiliteFailException(String message) {
+	public ResourceNotUpdatedException(String message) {
 		super(message);
 	}
 

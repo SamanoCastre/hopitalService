@@ -1,15 +1,15 @@
 package com.hopital.urgence.services.impl;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.google.maps.model.DistanceMatrix;
-import com.google.maps.model.DistanceMatrixElement;
+import com.google.maps.errors.ApiException;
 import com.hopital.urgence.entities.Disponibilite;
 import com.hopital.urgence.entities.Hopital;
-import com.hopital.urgence.exceptions.RechercheFailException;
+import com.hopital.urgence.exceptions.NoDataFoundException;
 import com.hopital.urgence.services.IDisponibiliteService;
 import com.hopital.urgence.services.IGoogleDistanceMatrix;
 import com.hopital.urgence.services.IHopitalService;
@@ -25,35 +25,30 @@ public class HopitalServiceImpl implements IHopitalService{
 	private IDisponibiliteService disponibiliteService;
 	
 	@Override
-	public Hopital rechercherHopital(String lieu, int specialite_id) throws Exception {
+	public Hopital rechercherHopital(String lieu, int specialite_id) throws ApiException, InterruptedException, IOException {
 		
-		try {
-			List<Disponibilite> listDisponibilites = this.disponibiliteService.findBySpecialiteId(specialite_id);
+		List<Disponibilite> listDisponibilites = this.disponibiliteService.findBySpecialiteId(specialite_id);
 			
-			String addresseLaPlusProche = this.distanceService.getClosestDestination(lieu, this.getDestinations(listDisponibilites));	
+		String addresseLaPlusProche = this.distanceService.getClosestDestination(lieu, this.getDestinations(listDisponibilites));	
 			
-			Hopital hopital = null;
-			int compteurDisponibilite = 0;
+		Hopital hopital = null;
+		int compteurDisponibilite = 0;
 			
-			while (hopital == null && compteurDisponibilite < listDisponibilites.size()) {
-				Disponibilite disponibilite = listDisponibilites.get(compteurDisponibilite);
-				
-				if(addresseLaPlusProche != null 
-						&& addresseLaPlusProche.contains(disponibilite.getHopital().getAddress().getVille()) 
-						&& addresseLaPlusProche.contains(disponibilite.getHopital().getAddress().getPays()))
-				{
-					hopital = disponibilite.getHopital();
-				}
-				compteurDisponibilite++;
+		while (hopital == null && compteurDisponibilite < listDisponibilites.size()) {
+			Disponibilite disponibilite = listDisponibilites.get(compteurDisponibilite);
+			
+			if(addresseLaPlusProche != null 
+					&& addresseLaPlusProche.contains(disponibilite.getHopital().getAddress().getVille()) 
+					&& addresseLaPlusProche.contains(disponibilite.getHopital().getAddress().getPays()))
+			{
+				hopital = disponibilite.getHopital();
 			}
-			if(hopital == null) {
-				throw new Exception("hopital null");
-			}
-			return hopital;
+			compteurDisponibilite++;
 		}
-		catch(Exception e) {
-			throw new RechercheFailException( e.getMessage() + "\n hopital null pour les arguments suivants : {lieu:"+lieu + ",specialite_id:" + specialite_id + "}");
+		if(hopital == null) {
+			throw new NoDataFoundException("Aucun hopital n'a été trouvé lors de la recherche");
 		}
+		return hopital;
 	}
    
 	public String[] getDestinations(List<Disponibilite> listDisponibilites) {

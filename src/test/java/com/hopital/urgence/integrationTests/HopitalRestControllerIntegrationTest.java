@@ -53,8 +53,7 @@ public class HopitalRestControllerIntegrationTest {
 		this.mockMvc.perform(MockMvcRequestBuilders.get("/hopital")
 				.param("lieuIncident", "31100 Toulouse")
 				.param("specialite", "0"))
-		        .andExpect(status().isInternalServerError())
-				.andExpect(MockMvcResultMatchers.jsonPath("$").doesNotExist());
+		        .andExpect(status().isInternalServerError());
 	}
 
 }

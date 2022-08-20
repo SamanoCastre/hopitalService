@@ -15,13 +15,13 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
-
 import com.hopital.urgence.entities.Address;
 import com.hopital.urgence.entities.Disponibilite;
 import com.hopital.urgence.entities.Hopital;
 import com.hopital.urgence.entities.Specialite;
-import com.hopital.urgence.exceptions.DisponibiliteFailException;
-import com.hopital.urgence.exceptions.DisponibiliteNotFoundException;
+import com.hopital.urgence.exceptions.ResourceNotUpdatedException;
+import com.hopital.urgence.exceptions.NoDataFoundException;
+import com.hopital.urgence.exceptions.ResourceNotFoundException;
 import com.hopital.urgence.repositories.DisponibiliteRepository;
 import com.hopital.urgence.services.impl.DisponibiliteServiceImpl;
 
@@ -66,7 +66,7 @@ public class DisponibiliteServiceUnitTest {
 	@Test
 	public void incrementerLitsDisponibiliteFailExceptionTest() throws Exception {
 		when(this.disponibiliteRepository.findByHopitalAndSpecialite(anyInt(), anyInt())).thenReturn(this.disponibilitiesList);
-		assertThrows(DisponibiliteFailException.class, ()->{this.disponibiliteService.incrementerLits(2, 2);});
+		assertThrows(ResourceNotUpdatedException.class, ()->{this.disponibiliteService.incrementerLits(2, 2);});
 	}
 	
 	
@@ -86,7 +86,7 @@ public class DisponibiliteServiceUnitTest {
 	@Test
 	public void decrementerLitsDisponibiliteFailExceptionTest() throws Exception {
 		when(this.disponibiliteRepository.findByHopitalAndSpecialite(anyInt(), anyInt())).thenReturn(this.disponibilitiesList);
-		assertThrows(DisponibiliteFailException.class, ()->{this.disponibiliteService.decrementerLits(2, 2);});
+		assertThrows(ResourceNotUpdatedException.class, ()->{this.disponibiliteService.decrementerLits(2, 2);});
 	}
 	
 	@Test
@@ -99,7 +99,7 @@ public class DisponibiliteServiceUnitTest {
 	@Test
 	public void getDisponibiliteNotFoundExceptionTest() throws Exception {
 		when(this.disponibiliteRepository.findByHopitalAndSpecialite(anyInt(),anyInt())).thenReturn(null);
-		assertThrows(DisponibiliteNotFoundException.class, ()->{
+		assertThrows(ResourceNotFoundException.class, ()->{
 			this.disponibiliteService.getDisponibilite(2, 2);
 		});
 	}
@@ -113,9 +113,17 @@ public class DisponibiliteServiceUnitTest {
 	
 	@Test
 	public void findBySpecialiteIdDisponibiliteNotFoundExceptionTest() throws Exception {
-		when(this.disponibiliteRepository.findBySpecialiteId(anyInt())).thenReturn(null);
-		assertThrows(DisponibiliteNotFoundException.class, ()->{
+		when(this.disponibiliteRepository.findBySpecialiteId(anyInt())).thenReturn(new ArrayList<Disponibilite>());
+		assertThrows(NoDataFoundException.class, ()->{
 			this.disponibiliteService.findBySpecialiteId(2);
+		});
+	}
+	
+	@Test
+	public void decrementerLitsInvalidTest() throws Exception {
+		when(this.disponibiliteRepository.save(any(Disponibilite.class))).thenReturn(null);
+		assertThrows(ResourceNotFoundException.class, ()->{
+			this.disponibiliteService.decrementerLits(2, 2);
 		});
 	}
 }

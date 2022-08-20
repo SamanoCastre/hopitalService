@@ -54,8 +54,7 @@ public class DisponibiliteRestControllerIntegrationTest {
 		this.mockMvc.perform(MockMvcRequestBuilders.get("/disponibilite")
 				.param("hopital_id", "0")
 				.param("specialite_id", "0"))
-		        .andExpect(status().isInternalServerError())
-				.andExpect(MockMvcResultMatchers.jsonPath("$").doesNotExist());
+		        .andExpect(status().isInternalServerError());
 	}
 	
 	@Test
@@ -80,8 +79,7 @@ public class DisponibiliteRestControllerIntegrationTest {
 		this.mockMvc.perform(MockMvcRequestBuilders.put("/disponibilite/incrementer")
 				.param("hopital_id", "0")
 				.param("specialite_id", "0"))
-		        .andExpect(status().isNotModified())
-		        .andExpect(MockMvcResultMatchers.jsonPath("$").doesNotExist());
+		        .andExpect(status().isInternalServerError());
 	}
 	
 	@Test
@@ -106,7 +104,6 @@ public class DisponibiliteRestControllerIntegrationTest {
 		this.mockMvc.perform(MockMvcRequestBuilders.put("/disponibilite/decrementer")
 				.param("hopital_id", "0")
 				.param("specialite_id", "0"))
-		        .andExpect(status().isNotModified())
-		        .andExpect(MockMvcResultMatchers.jsonPath("$").doesNotExist());
+		        .andExpect(status().isInternalServerError());
 	}
 }

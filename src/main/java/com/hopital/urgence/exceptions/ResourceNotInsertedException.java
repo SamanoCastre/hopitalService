@@ -1,14 +1,13 @@
 package com.hopital.urgence.exceptions;
 
-public class RechercheFailException extends Exception{
+public class ResourceNotInsertedException extends RuntimeException{
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public RechercheFailException(String message) {
+	public ResourceNotInsertedException(String message) {
 		super(message);
 	}
-
 }

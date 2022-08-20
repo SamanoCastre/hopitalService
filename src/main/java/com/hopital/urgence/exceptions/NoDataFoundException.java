@@ -1,13 +1,14 @@
 package com.hopital.urgence.exceptions;
 
-public class GoogleDistanceFailException extends Exception{
+public class NoDataFoundException extends RuntimeException{
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public GoogleDistanceFailException(String message) {
+	public NoDataFoundException(String message) {
 		super(message);
 	}
+
 }

@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.repository.Query;
 import com.hopital.urgence.entities.Disponibilite;
 
 public interface DisponibiliteRepository extends MongoRepository<Disponibilite, Integer>{
+	@SuppressWarnings("unchecked")
 	public Disponibilite save(Disponibilite disponibilite);
 	
 	

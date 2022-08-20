@@ -12,7 +12,6 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import org.springframework.http.HttpStatus;
 
 import com.hopital.urgence.entities.Address;
 import com.hopital.urgence.entities.Disponibilite;
@@ -55,12 +54,4 @@ public class HopitalRestControllerUnitTest {
 		when(this.hopitalService.rechercherHopital(any(String.class), anyInt())).thenReturn(expectedHopital);
 		assertEquals(expectedHopital, this.hopitalRestController.rechercherHopital("31100 Touluse", 2).getBody());
 	}
-	
-	@Test
-	public void rechercherHopitalInvalidUnitTest() throws Exception {
-		Hopital expectedHopital = this.disponibilitiesList.get(0).getHopital();
-		when(this.hopitalService.rechercherHopital(any(String.class), anyInt())).thenReturn(expectedHopital);
-		assertEquals(this.hopitalRestController.rechercherHopital("31100 Toulouse", 0).getStatusCode(), HttpStatus.INTERNAL_SERVER_ERROR);
-	}
-
 }

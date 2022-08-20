@@ -12,6 +12,7 @@ public interface SpecialiteRepository extends MongoRepository<Specialite, Intege
 	
 	public Specialite findById(int specialiteId);
 	
+	@SuppressWarnings("unchecked")
 	public Specialite save(Specialite specialite);
 
 }

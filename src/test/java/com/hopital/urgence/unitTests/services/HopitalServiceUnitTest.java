@@ -15,7 +15,7 @@ import com.hopital.urgence.entities.Address;
 import com.hopital.urgence.entities.Disponibilite;
 import com.hopital.urgence.entities.Hopital;
 import com.hopital.urgence.entities.Specialite;
-import com.hopital.urgence.exceptions.RechercheFailException;
+import com.hopital.urgence.exceptions.NoDataFoundException;
 import com.hopital.urgence.services.IDisponibiliteService;
 import com.hopital.urgence.services.IGoogleDistanceMatrix;
 import com.hopital.urgence.services.IHopitalService;
@@ -43,6 +43,6 @@ public class HopitalServiceUnitTest {
 		
 		when(this.disponibiliteService.findBySpecialiteId(anyInt())).thenReturn(disponibilitiesList);
 		
-		assertThrows(RechercheFailException.class, () -> { this.hopitalService.rechercherHopital("31100 Toulouse", 2);});
+		assertThrows(NoDataFoundException.class, () -> { this.hopitalService.rechercherHopital("31100 Toulouse", 2);});
 	}
 }

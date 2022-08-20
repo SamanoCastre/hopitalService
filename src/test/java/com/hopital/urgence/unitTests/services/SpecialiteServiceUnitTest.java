@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -27,6 +28,7 @@ public class SpecialiteServiceUnitTest {
 	@Test
 	public void getSpecialitesTest() throws Exception {
 		List<Specialite>specialites = new ArrayList<Specialite>();
+		specialites.add(new Specialite(2,"Test", "GroupeTest", new Date()));
 		when(this.specialiteRepository.findAll()).thenReturn(specialites);
 		assertThat(this.specialiteService.getSpecialites()).asList();
 	}

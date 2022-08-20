@@ -9,10 +9,12 @@ import java.util.Objects;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Update;
+import org.springframework.stereotype.Service;
 
 import com.hopital.urgence.entities.DatabaseSequence;
 import com.hopital.urgence.services.ISequenceGeneratorService;
 
+@Service
 public class SequenceGeneratorServiceImpl implements ISequenceGeneratorService{
 	
 	@Autowired

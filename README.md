@@ -28,17 +28,19 @@ Note 3 : All access to this microservice must be done via the API gateway (Gatew
 #External API used
 GoogleMatrix API (provide a valid API KEY "see cloudConfig repo")  : to calculate the distance
 
-#Dependencies
-1. spring-boot-starter-data-mongodb
-2. spring-boot-starter-log4j2
-3. spring-cloud-starter-netflix-eureka-client
-4. google-maps-services
-5. spring-boot-starter-test
-6. spring-cloud-starter-openfeign
 
 #Data Storage
-1. hospital, specialty and availability data are stored in a mongodb database (3 collections). See subfolder: resources/mongodb
-2. Note : To update database configuration, got to the repo cloudConfig (https://github.com/SamanoCastre/cloudConfig)
+The data are stored in a mongodb database called "medhead_bdd" in 3 collections (Hopital, Specialite y disponibilite)
+
+##Creating database
+1. Download and install mongodb compas
+2. create a new database with the name "medhead_bdd"
+3. Import the CSV files located under the subfolder "resource/mongodb". there are all the collections of the database.
+
+Collections name : 
+a. Hopital
+b. Specialite
+c. Disponibilite
 
 #Tests
 1. Unit Tests

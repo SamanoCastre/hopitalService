@@ -1,21 +1,25 @@
 package com.hopital.urgence.web;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import javax.validation.constraints.Min;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hopital.urgence.entities.Disponibilite;
+import com.hopital.urgence.exceptions.ResourceNotUpdatedException;
+import com.hopital.urgence.exceptions.ResourceNotFoundException;
 import com.hopital.urgence.services.IDisponibiliteService;
 
+@Validated 
 @RestController
 public class DisponibiliteRestController {
-	Logger logger = LoggerFactory.getLogger(DisponibiliteRestController.class);
 	
 	IDisponibiliteService disponibiliteService;
 	
@@ -24,49 +28,33 @@ public class DisponibiliteRestController {
 	}
 	
 	@PutMapping(path="/disponibilite/incrementer", produces=MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Disponibilite> incrementerLits(@RequestParam("hopital_id") int hopital_id, @RequestParam("specialite_id") int specialite_id) {
-		
-		try {
-			if(hopital_id < 1 || specialite_id  < 1) {
-				throw new Exception("l'hopital ou la specialite n'a pas été renseigné");
-			}
-		    return new ResponseEntity<Disponibilite>(this.disponibiliteService.incrementerLits(hopital_id, specialite_id), HttpStatus.CREATED);
-		}
-		catch(Exception e) {
-			this.logger.error(e.getMessage());
-			return new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
-		}
+	public ResponseEntity<Disponibilite> incrementerLits(
+			  @RequestParam("hopital_id") @Min(1) int hopital_id, 
+			  @RequestParam("specialite_id") @Min(1) int specialite_id) throws ResourceNotUpdatedException, ResourceNotFoundException 
+					 {
+		   return new ResponseEntity<Disponibilite>(
+				   this.disponibiliteService.incrementerLits(hopital_id, specialite_id), 
+				   HttpStatus.CREATED);
 	}
 	
 	@PutMapping(path="/disponibilite/decrementer", produces=MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Disponibilite> decrementerLits(@RequestParam("hopital_id") int hopital_id, @RequestParam("specialite_id") int specialite_id) {
+	public ResponseEntity<Disponibilite> decrementerLits(
+			 @RequestParam("hopital_id") @Min(1) int hopital_id, 
+			  @RequestParam("specialite_id") @Min(1) int specialite_id) 
+					throws ResourceNotUpdatedException, ResourceNotFoundException, Exception {
 		
-		try {
-			if(hopital_id < 1 || specialite_id  < 1) {
-				throw new Exception("l'hopital ou la specialite n'a pas été renseigné");
-			}
-			return new ResponseEntity<Disponibilite>(this.disponibiliteService.decrementerLits(hopital_id, specialite_id), HttpStatus.CREATED);
-		
-		}
-		catch(Exception e) {
-			this.logger.error(e.getMessage());
-			return new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
-		}
+		return new ResponseEntity<Disponibilite>(
+				this.disponibiliteService.decrementerLits(hopital_id, specialite_id), 
+				HttpStatus.CREATED);
 	}
 	
 	@GetMapping(path="/disponibilite", produces=MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Disponibilite> getDisponibilite(@RequestParam("hopital_id") int hopital_id, @RequestParam("specialite_id") int specialite_id ) {
+	public ResponseEntity<Disponibilite> getDisponibilite(
+			 @RequestParam("hopital_id") @Min(1) int hopital_id, 
+			 @RequestParam("specialite_id") @Min(1) int specialite_id ) throws ResourceNotFoundException {
 		
-		try {
-			if(hopital_id < 1 || specialite_id < 1) {
-				throw new Exception("hopital ou specialite invalid");
-			}
-			return new ResponseEntity<Disponibilite>(this.disponibiliteService.getDisponibilite(hopital_id, specialite_id), HttpStatus.OK);
-			
+			return new ResponseEntity<Disponibilite>(
+					this.disponibiliteService.getDisponibilite(hopital_id, specialite_id), 
+					HttpStatus.OK);
 		}
-		catch(Exception e) {
-			this.logger.error(e.getMessage());
-			return new ResponseEntity<Disponibilite>(HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-	}
 }

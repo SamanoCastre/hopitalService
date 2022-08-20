@@ -10,7 +10,6 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import org.springframework.http.HttpStatus;
 
 import com.hopital.urgence.entities.Specialite;
 import com.hopital.urgence.services.ISpecialiteService;
@@ -34,11 +33,5 @@ public class SpecialiteRestControllerUnitTest {
 	public void getSpecialitesValidTest() throws Exception {
 		when(this.specialiteService.getSpecialites()).thenReturn(this.specialites);
 		assertEquals(this.specialites, this.specialiteRestController.getSpecialites().getBody());
-	}
-	
-	@Test
-	public void getSpecialiteInvalidTest() throws Exception {
-		when(this.specialiteService.getSpecialites()).thenThrow(Exception.class);
-		assertEquals(this.specialiteRestController.getSpecialites().getStatusCode(),HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 }
