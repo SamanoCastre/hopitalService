@@ -4,15 +4,11 @@ pipeline{
 		pollSCM('* * * * *')
 	}
     stages{
-		stage("Check for pre-condition") {
-			steps {
-				if (!continueBuild) {
+        stage("Compile the source code")	{
+			if (!continueBuild) {
 				    currentBuild.result = 'ABORTED'
 				    error('Stopping early…')
-				}
 			}
-		}
-        stage("Compile the source code")	{
             steps	{
             	bat "mvn compile"
             }
