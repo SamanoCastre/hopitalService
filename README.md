@@ -4,11 +4,11 @@ Hopital Service
 # Description of the project
 Hospital service is the microservice that manages the search for hospitals based on incident location and specialty.
 
-Note 1 : the settings for this microservice are centralized in the configuration microservice. therefore, the latter must be fully operational in order to serve it its configuration parameters.
+Note 1 : the settings for this microservice are centralized in the configuration microservice. therefore, the config-service must be fully operational in order to serve configuration parameters to every microservice.
 
-Note 2 : This microservice needs to register with the eureka registration service (registry-service). Therefore, the latter must be fully operational in order for it to register with it.
+Note 2 : hopital-service needs to register with the eureka registration service (registre-service). Therefore, the registre-service must be fully operational in order for other microservices to be registred.
 
-Note 3 : All access to this microservice must be done via the API gateway (Gateway-service). Therefore, the latter must be fully operational.
+Note 3 : All access to hopital-service must be done via the API gateway (Gateway-service). Therefore, the gateway-service must be fully operational.
 
 #Fonctionalities
 1. Rechercher d'hopital à proximité
