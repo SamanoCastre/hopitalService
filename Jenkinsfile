@@ -5,28 +5,9 @@ pipeline{
 	}
     stages{
 		stage("Check Preconditions") {
-		    def autoCancelled = false
-			try {
-			  stage('checkout') {
-			    if (!continueBuild) {
-			      autoCancelled = true
-			      return
-			    }
-			  }
-			  if (autoCancelled) {
-			    error('Aborting the build to prevent a loop.')
-			    // return would be also possible but you have to be sure to quit all stages and wrapper properly
-			    // return
-			  }
-			} catch (e) {
-			  if (autoCancelled) {
+		    if (!continueBuild) {
 			    currentBuild.result = 'ABORTED'
-			    echo('Skipping mail notification')
-			    // return here instead of throwing error to keep the build "green"
-			    return
-			  }
-			  // normal error handling
-			  throw e
+			    error('Stopping early…')
 			}
 		}
         stage("Compile the source code")	{
