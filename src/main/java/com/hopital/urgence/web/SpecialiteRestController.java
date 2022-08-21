@@ -21,6 +21,11 @@ public class SpecialiteRestController {
 		this.specialiteService = specialiteService;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
 	@GetMapping("/specialites")
 	public ResponseEntity<List<Specialite>> getSpecialites() throws Exception {
 		return new ResponseEntity<List<Specialite>>(this.specialiteService.getSpecialites(), HttpStatus.OK);

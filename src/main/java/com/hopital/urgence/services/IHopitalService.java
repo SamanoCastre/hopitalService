@@ -10,5 +10,4 @@ import com.hopital.urgence.entities.Hopital;
 public interface IHopitalService {
 	
 	public Hopital rechercherHopital(String lieu, int specialite_id) throws ApiException, InterruptedException, IOException;
-	public String[] getDestinations(List<Disponibilite> listDisponibilites) throws Exception;
 }

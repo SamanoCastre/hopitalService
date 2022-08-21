@@ -17,7 +17,6 @@ import com.hopital.urgence.services.IHopitalService;
 @Service
 public class HopitalServiceImpl implements IHopitalService{
 	
-	
 	@Autowired
 	private IGoogleDistanceMatrix distanceService;
 	

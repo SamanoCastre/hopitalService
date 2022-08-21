@@ -26,6 +26,15 @@ public class HopitalRestController {
 		this.hopitalService = hopitalService;
 	}
 	
+	/**
+	 * 
+	 * @param lieuIncident
+	 * @param specialite
+	 * @return
+	 * @throws ApiException
+	 * @throws InterruptedException
+	 * @throws IOException
+	 */
 	@GetMapping(path="/hopital", produces=MediaType.APPLICATION_JSON_VALUE) 
 	public ResponseEntity<Hopital> rechercherHopital( 
 			@RequestParam("lieuIncident") @NotEmpty String lieuIncident, 
