@@ -6,10 +6,9 @@ pipeline{
     stages{
         stage("Compile the source code")	{
             steps	{
-            	bat "mvn compile"
+	 			bat "mvn compile"
             }
         }
-        
         stage("Test the source code")	{
             steps	{
            		bat "mvn test"
@@ -23,14 +22,14 @@ pipeline{
 					reportFiles:	'index.html',
 					reportName:	"CodeCoverageReport"
 				])
+	            bat "mvn clean verify"
             }
         }
-	    
 		stage("Package the application")	{
-	            steps	{
-	            	bat "mvn clean package -DskipTests"
-	            }
-	        }
+            steps	{
+            	bat "mvn clean package -DskipTests"
+            }
+        }
 	
 		stage("Deploy to the staging")	{
 		    steps	{
