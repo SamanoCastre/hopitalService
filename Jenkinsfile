@@ -2,8 +2,15 @@ pipeline{
     agent any
     triggers{
 		pollSCM('* * * * *')
-	}
+    }
     stages{
+        stage('Stop Old Build') {
+            steps {
+                milestone label: '', ordinal:  Integer.parseInt(env.BUILD_ID) - 1
+                milestone label: '', ordinal:  Integer.parseInt(env.BUILD_ID)
+            }
+        }
+    
         stage("Compile the source code")	{
             steps	{
 	 			bat "mvn compile"
