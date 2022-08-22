@@ -4,6 +4,11 @@ pipeline{
 		pollSCM('* * * * *')
     }
     stages{
+	    stage("Killing currentBuild") {
+		    steps{
+			 currentBuild.result = 'ABORT'    
+		    }
+	    }
         stage("Compile the source code")	{
             steps	{
 	 			bat "mvn compile"
