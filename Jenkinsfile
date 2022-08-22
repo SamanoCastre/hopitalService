@@ -4,7 +4,14 @@ pipeline{
 		pollSCM('* * * * *')
     }
     stages{
-	    
+	stage("Check pre-conditions") {
+		steps {
+		    script {
+			currentBuild.result = 'ABORTED'
+			error("Aborting the build.")
+		    }
+		}    
+	}
         stage("Compile the source code")	{
             steps	{
 	 			bat "mvn compile"
