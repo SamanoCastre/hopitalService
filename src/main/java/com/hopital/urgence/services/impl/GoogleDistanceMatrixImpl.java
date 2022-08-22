@@ -16,7 +16,7 @@ import com.hopital.urgence.services.IGoogleDistanceMatrix;
 @Service
 public class GoogleDistanceMatrixImpl implements IGoogleDistanceMatrix {
 	
-	@Value("${API_KEY}")
+	@Value("${google.distance.api.key}")
     private String API_KEY;
 	
 	
