@@ -5,13 +5,13 @@ pipeline{
     }
     stages{
         stage("Compile the source code")	{
-            steps	{
-	 			bat "mvn compile"
+            steps {
+	 	bat "mvn compile"
             }
         } 
         stage("Test the source code")	{
-            steps	{
-           		bat "mvn test"
+            steps {
+           	bat "mvn test"
             }
         }
          stage("Code coverage. Limiting the minimum score for lines coverage to 75%")	{
