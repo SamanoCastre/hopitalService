@@ -36,11 +36,5 @@ pipeline{
 			    bat "mvn spring-boot:run"
 			}
 		}
-	    stage("Execute JMeter") {
-		    steps {
-			  bat "C:\Users\castr\apache-jmeter-5.5\bin>jmeter-n.cmd C:\Users\castr\.jenkins/workspace/hopitalService/TestPlan.jmx -l C:\Users\castr\.jenkins/workspace/JMeter/TestPlan.jtl -e
-		    	 
-		    }
-	    }
     }
 }
