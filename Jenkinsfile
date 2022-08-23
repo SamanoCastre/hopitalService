@@ -39,7 +39,7 @@ pipeline{
 	    stage("Execute JMeter") {
 		    steps {
 			  bat "C:\Users\castr\apache-jmeter-5.5\bin>jmeter-n.cmd $JENKINS_HOME/workspace/hopitalService/TestPlan.jmx -l $JENKINS_HOME/workspace/JMeter/TestPlan.jtl -e
-		    	  perfReport '*.csv'
+		    	 
 		    }
 	    }
     }
