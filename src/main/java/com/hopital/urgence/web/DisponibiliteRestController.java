@@ -19,7 +19,6 @@ import com.hopital.urgence.exceptions.ResourceNotFoundException;
 import com.hopital.urgence.services.IDisponibiliteService;
 
 @Validated 
-@RefreshScope
 @RestController
 public class DisponibiliteRestController {
 	

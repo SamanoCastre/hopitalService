@@ -13,7 +13,6 @@ import com.hopital.urgence.entities.Specialite;
 import com.hopital.urgence.services.ISpecialiteService;
 
 @Validated 
-@RefreshScope
 @RestController
 public class SpecialiteRestController {
 	

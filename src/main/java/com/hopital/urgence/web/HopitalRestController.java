@@ -19,7 +19,6 @@ import com.hopital.urgence.entities.Hopital;
 import com.hopital.urgence.services.IHopitalService;
 
 @Validated 
-@RefreshScope
 @RestController
 public class HopitalRestController {
 	
