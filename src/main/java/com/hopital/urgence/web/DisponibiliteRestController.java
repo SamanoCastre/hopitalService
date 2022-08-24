@@ -3,6 +3,7 @@ package com.hopital.urgence.web;
 
 import javax.validation.constraints.Min;
 
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,7 @@ import com.hopital.urgence.exceptions.ResourceNotFoundException;
 import com.hopital.urgence.services.IDisponibiliteService;
 
 @Validated 
+@RefreshScope
 @RestController
 public class DisponibiliteRestController {
 	
