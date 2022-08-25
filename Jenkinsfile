@@ -36,5 +36,5 @@ pipeline{
 			    bat "mvn spring-boot:run"
 			}
 		}
-    }
+	}
 }
