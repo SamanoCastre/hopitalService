@@ -37,7 +37,7 @@ pipeline{
 			}
 		}
 		stage ('JMeter Performance') {
-		    dir('jmeter') {
+		    dir('C:/Users/castr/apache-jmeter-5.5\bin') {
 			bat "jmeter -Jjmeter.save.saveservice.output_format=xml
 			  -n -t src/main/resources/JMeter.jmx 
 			    -l src/main/resources/JMeter.jtl"
