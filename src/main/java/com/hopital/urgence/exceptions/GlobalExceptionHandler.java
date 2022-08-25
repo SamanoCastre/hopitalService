@@ -11,7 +11,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler  {
 	
-	@ExceptionHandler(value = {ResourceNotFoundException.class, NoDataFoundException.class, NoMoreBedFoundException.class})
+	@ExceptionHandler(value = {ResourceNotFoundException.class, NoDataFoundException.class})
 	  public ResponseEntity<ErrorMessage> resourceNotFoundException(RuntimeException ex, WebRequest request) {
 		ErrorMessage message = new ErrorMessage(
 		        HttpStatus.NOT_FOUND.value(),
@@ -21,6 +21,18 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler  {
 	    
 	    return new ResponseEntity<ErrorMessage>(message, HttpStatus.NOT_FOUND);
 	  }
+	
+	@ExceptionHandler(value = {NoMoreBedFoundException.class})
+	  public ResponseEntity<ErrorMessage> notEvailableException(RuntimeException ex, WebRequest request) {
+		ErrorMessage message = new ErrorMessage(
+		        HttpStatus.UNAVAILABLE_FOR_LEGAL_REASONS.value(),
+		        new Date(),
+		        ex.getMessage(),
+		        request.getDescription(false));
+	    
+	    return new ResponseEntity<ErrorMessage>(message, HttpStatus.UNAVAILABLE_FOR_LEGAL_REASONS);
+	  }
+	
 	
 	@ExceptionHandler(value = {ResourceNotUpdatedException.class, ResourceNotInsertedException.class})
 	  public ResponseEntity<ErrorMessage> resourceNotUpdatedException( RuntimeException ex, WebRequest request) {
