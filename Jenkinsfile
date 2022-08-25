@@ -36,5 +36,12 @@ pipeline{
 			    bat "mvn spring-boot:run"
 			}
 		}
+	    stage("Jmeter Performance") {
+		    bat "while ! httping -qc1 http://localhost:8081 ; do sleep 1 ; done"
+                    bat "jmeter -Jjmeter.save.saveservice.output_format=xml -n -t src/main/resources/JMeter.jmx -l src/main/resources/JMeter.jtl"
+		    step([$class: 'ArtifactArchiver', artifacts: 'JMeter.jtl']) {
+                         bat "pid=\$(lsof -i:8989 -t); kill -TERM \$pid || kill -KILL \$pid"
+		    }
+	    }
 	}
 }
