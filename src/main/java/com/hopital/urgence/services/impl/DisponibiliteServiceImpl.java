@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import com.hopital.urgence.entities.Disponibilite;
 import com.hopital.urgence.exceptions.ResourceNotUpdatedException;
 import com.hopital.urgence.exceptions.NoDataFoundException;
+import com.hopital.urgence.exceptions.NoMoreBedFoundException;
 import com.hopital.urgence.exceptions.ResourceNotFoundException;
 import com.hopital.urgence.repositories.DisponibiliteRepository;
 import com.hopital.urgence.services.IDisponibiliteService;
@@ -32,7 +33,10 @@ public class DisponibiliteServiceImpl implements IDisponibiliteService{
 	@Override
 	public Disponibilite decrementerLits(int hopital_id, int specialite_id) throws ResourceNotUpdatedException, ResourceNotFoundException {
 	
-		Disponibilite disponibilite = this.getDisponibilite(hopital_id, specialite_id);   
+		Disponibilite disponibilite = this.getDisponibilite(hopital_id, specialite_id); 
+		if(disponibilite.getLits() <= 0) {
+			throw new NoMoreBedFoundException("Aucun lit n'est disponible pour l'hopital " + hopital_id + " et specialite_id : " + specialite_id);
+		}
 		disponibilite.setLits(disponibilite.getLits() - 1);
 		disponibilite = this.disponibiliteRepository.save(disponibilite);
 		if(disponibilite == null) {

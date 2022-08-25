@@ -16,7 +16,7 @@ public class HopitalRestControllerAcceptanceTest {
 	private MockMvc mockMvc;
 	
 	@Test
-	public void rechercherHopitalValidTest() throws Exception {
+	public void rechercherHopitalShouldReturnAnHospital() throws Exception {
 		
 		this.mockMvc.perform(MockMvcRequestBuilders.get("/hopital")
 				.param("lieuIncident", "31100 Toulouse")
@@ -26,11 +26,10 @@ public class HopitalRestControllerAcceptanceTest {
 	}
 	
 	@Test
-	public void rechercherHopitalInvalidTest() throws Exception {
+	public void rechercherHopitalShouldReturnError500() throws Exception {
 		this.mockMvc.perform(MockMvcRequestBuilders.get("/hopital")
 				.param("lieuIncident", "31100 Toulouse")
 				.param("specialite", "0"))
 		        .andExpect(status().isInternalServerError());
 	}
-
 }
