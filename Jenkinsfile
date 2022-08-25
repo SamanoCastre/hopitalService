@@ -34,7 +34,9 @@ pipeline{
 		stage("Deploy to the staging")	{
 		    steps	{
 			    bat "mvn spring-boot:run"
-			    bat "jmeter -Jjmeter.save.saveservice.output_format=xml -n -t src/main/resources/JMeter.jmx -l src/main/resources/JMeter.jtl"
+			}
+			steps {
+				bat "jmeter -Jjmeter.save.saveservice.output_format=xml -n -t src/main/resources/JMeter.jmx -l src/main/resources/JMeter.jtl"
 			    step([$class: 'ArtifactArchiver', artifacts: 'JMeter.jtl']) {
 				 bat "pid=\$(lsof -i:8989 -t); kill -TERM \$pid || kill -KILL \$pid"
 			    }
