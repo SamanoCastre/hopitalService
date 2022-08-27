@@ -17,7 +17,7 @@ import com.hopital.urgence.entities.Hopital;
 import com.hopital.urgence.entities.Specialite;
 import com.hopital.urgence.exceptions.NoDataFoundException;
 import com.hopital.urgence.services.IDisponibiliteService;
-import com.hopital.urgence.services.IGoogleDistanceMatrix;
+import com.hopital.urgence.services.IDistanceMatrix;
 import com.hopital.urgence.services.IHopitalService;
 import com.hopital.urgence.services.impl.HopitalServiceImpl;
 
@@ -25,7 +25,7 @@ import com.hopital.urgence.services.impl.HopitalServiceImpl;
 public class HopitalServiceUnitTest {
 	
 	@Mock
-	private IGoogleDistanceMatrix distanceService;
+	private IDistanceMatrix distanceService;
 	
 	@Mock
 	private IDisponibiliteService disponibiliteService;

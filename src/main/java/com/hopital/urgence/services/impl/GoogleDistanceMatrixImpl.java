@@ -11,10 +11,10 @@ import com.google.maps.errors.ApiException;
 import com.google.maps.model.DistanceMatrix;
 import com.google.maps.model.DistanceMatrixElement;
 import com.google.maps.model.TravelMode;
-import com.hopital.urgence.services.IGoogleDistanceMatrix;
+import com.hopital.urgence.services.IDistanceMatrix;
 
 @Service
-public class GoogleDistanceMatrixImpl implements IGoogleDistanceMatrix {
+public class GoogleDistanceMatrixImpl implements IDistanceMatrix {
 	
 	@Value("${google.distance.api.key}")
     private String API_KEY;

@@ -11,14 +11,14 @@ import com.hopital.urgence.entities.Disponibilite;
 import com.hopital.urgence.entities.Hopital;
 import com.hopital.urgence.exceptions.NoDataFoundException;
 import com.hopital.urgence.services.IDisponibiliteService;
-import com.hopital.urgence.services.IGoogleDistanceMatrix;
+import com.hopital.urgence.services.IDistanceMatrix;
 import com.hopital.urgence.services.IHopitalService;
 
 @Service
 public class HopitalServiceImpl implements IHopitalService{
 	
 	@Autowired
-	private IGoogleDistanceMatrix distanceService;
+	private IDistanceMatrix distanceService;
 	
 	@Autowired
 	private IDisponibiliteService disponibiliteService;
@@ -28,7 +28,7 @@ public class HopitalServiceImpl implements IHopitalService{
 		
 		List<Disponibilite> listDisponibilites = this.disponibiliteService.findBySpecialiteId(specialite_id);
 			
-		String addresseLaPlusProche = this.distanceService.getClosestDestination(lieu, this.getDestinations(listDisponibilites));	
+		String addresseLaPlusProche = this.distanceService.getClosestDestination(lieu, this.getAddresses(listDisponibilites));	
 			
 		Hopital hopital = null;
 		int compteurDisponibilite = 0;
@@ -50,7 +50,7 @@ public class HopitalServiceImpl implements IHopitalService{
 		return hopital;
 	}
    
-	public String[] getDestinations(List<Disponibilite> listDisponibilites) {
+	public String[] getAddresses(List<Disponibilite> listDisponibilites) {
 		String[] destinations = new String[listDisponibilites.size()];
 		
 		for (int i = 0; i < listDisponibilites.size(); i++) {

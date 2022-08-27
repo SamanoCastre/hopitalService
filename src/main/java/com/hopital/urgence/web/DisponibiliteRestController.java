@@ -2,8 +2,6 @@ package com.hopital.urgence.web;
 
 
 import javax.validation.constraints.Min;
-
-import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

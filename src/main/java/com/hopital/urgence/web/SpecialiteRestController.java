@@ -1,8 +1,6 @@
 package com.hopital.urgence.web;
 
 import java.util.List;
-
-import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;

@@ -4,8 +4,6 @@ import java.io.IOException;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
-
-import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
