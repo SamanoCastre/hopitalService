@@ -42,16 +42,20 @@ a. Hopital
 b. Specialite
 c. Disponibilite
 
+#CI-CD Pipelines
+1. See the project's configuration Jenkinsfile located in the classpath of the project
+
 #Tests
 1. Unit Tests
 2. Integration Tests
 4. Acceptance Tests
 3. Command line : mvn test (see the project's jenkinsfile)
 
-##CI-CD
-1. See the project's configuration jenkinsfile
+#Automated tests 
+1. using the jenkins tool (see the project's jenkinsfile)
+2. use of JMeter (see TestPlan.jmx in the classpath of the project)
 
-##Tests Report
+#Tests Report
 1. Use Jacoco
 2. Command line : mvn test jacoco:report (see project's jenkinsfile)
 
